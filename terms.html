@@ -9,14 +9,20 @@
 <link rel="icon" type="image/png" href="assets/NotiSnap_Final_V1.png">
 
 <style>
+  
 body{
 background:#121212;
 color:white;
 font-family:Segoe UI,sans-serif;
-max-width:900px;
-margin:auto;
-padding:40px 20px;
+margin:0;
+padding:0;
 line-height:1.8;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:0 20px 40px;
 }
 
 h1{
@@ -32,53 +38,714 @@ color:#50C878;
 a{
 color:#50C878;
 }
+
+.navbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:16px 20px;
+
+background:#121212;
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+border-bottom:1px solid #222;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+}
+  
+.nav-left{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+.nav-logo{
+
+width:40px;
+
+height:40px;
+
+}
+
+.brand{
+
+font-size:1.5rem;
+
+font-weight:bold;
+
+white-space:nowrap;
+
+}
+  
+.nav-right{
+
+display:flex;
+
+gap:22px;
+
+margin-left:auto;
+
+flex-wrap:wrap;
+
+}
+
+.nav-right a{
+
+text-decoration:none;
+
+color:#b0b0b0;
+
+font-size:1rem;
+
+transition:.15s ease-out;
+
+}
+
+.nav-right a.active-nav{
+
+color:#50C878;
+
+font-weight:600;
+
+}
+
+.nav-right a:hover{
+
+color:#50C878;
+
+}
+
+.desktop-nav{
+display:flex;
+}
+
+.mobile-nav{
+display:none;
+}
+
+@media(max-width:700px){
+
+.navbar{
+
+flex-direction:row;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:nowrap;
+
+}
+
+.nav-left{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+flex:1;
+
+min-width:0;
+
+}
+
+.nav-right{
+
+margin-left:auto;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.desktop-nav{
+display:none;
+}
+
+.mobile-nav{
+
+display:flex;
+
+align-items:center;
+
+justify-content:flex-end;
+
+gap:14px;
+
+flex:1;
+
+}
+  
+.menu-btn{
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:28px;
+
+cursor:pointer;
+
+padding:0;
+
+-webkit-tap-highlight-color:transparent;
+
+tap-highlight-color:transparent;
+
+outline:none;
+
+user-select:none;
+
+-webkit-user-select:none;
+
+}
+  
+.mobile-support{
+
+color:#b0b0b0;
+
+text-decoration:none;
+
+-webkit-tap-highlight-color:transparent;
+
+tap-highlight-color:transparent;
+
+outline:none;
+
+user-select:none;
+
+-webkit-user-select:none;
+
+}
+
+}
+
+.drawer-overlay{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.45);
+
+backdrop-filter:blur(4px);
+
+-webkit-backdrop-filter:blur(4px);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.25s ease;
+
+z-index:1998;
+
+}
+
+.drawer-overlay.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+.mobile-drawer{
+
+position:fixed;
+
+top:0;
+
+right:-320px;
+
+width:300px;
+
+max-width:85vw;
+
+height:100vh;
+
+background:#1c1c1c;
+
+border-left:1px solid #2a2a2a;
+
+box-shadow:-12px 0 30px rgba(0,0,0,.45);
+
+transition:right .28s ease;
+
+z-index:1999;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.mobile-drawer.show{
+
+right:0;
+
+}
+
+.drawer-header{
+
+display:flex;
+
+justify-content:flex-end;
+
+padding:20px;
+
+border-bottom:1px solid #2a2a2a;
+
+}
+
+.drawer-close{
+
+background:none;
+
+border:none;
+
+color:white;
+
+font-size:32px;
+
+cursor:pointer;
+
+-webkit-tap-highlight-color:transparent;
+
+tap-highlight-color:transparent;
+
+outline:none;
+
+}
+
+.drawer-links{
+
+display:flex;
+
+flex-direction:column;
+
+padding:12px 0;
+
+}
+
+.drawer-links a{
+
+padding:18px 28px;
+
+text-decoration:none;
+
+color:#b0b0b0;
+
+font-size:1.08rem;
+
+transition:.15s;
+
+}
+
+.drawer-links a:hover{
+
+background:#242424;
+
+color:#50C878;
+
+}
+
+.drawer-links a.active{
+
+color:#50C878;
+
+background:#242424;
+
+font-weight:600;
+
+}
+
+.hero-section{
+
+padding:50px 0 30px;
+
+}
+
+.hero-section h1{
+
+font-size:2.8rem;
+
+color:#50C878;
+
+margin-bottom:18px;
+
+}
+
+.last-updated{
+
+color:#9a9a9a;
+
+margin-bottom:20px;
+
+}
+
+.hero-description{
+
+font-size:1.12rem;
+
+line-height:1.9;
+
+color:#d0d0d0;
+
+max-width:760px;
+
+}
+
+.policy-card{
+
+background:#1c1c1c;
+
+border:1px solid #2a2a2a;
+
+border-radius:18px;
+
+padding:28px;
+
+margin:28px 0;
+
+transition:
+transform .15s ease-out,
+border-color .15s ease-out,
+box-shadow .15s ease-out;
+
+}
+
+.policy-card:hover{
+
+transform:translateY(-4px);
+
+border-color:#50C878;
+
+box-shadow:0 0 20px rgba(80,200,120,.18);
+
+}
+
+.policy-card h2{
+
+margin-top:0;
+
+margin-bottom:14px;
+
+color:#50C878;
+
+}
+
+.policy-card p{
+
+color:#d6d6d6;
+
+line-height:1.9;
+
+}
+
+#scrollTopBtn{
+
+position:fixed;
+
+bottom:24px;
+
+right:24px;
+
+width:54px;
+
+height:54px;
+
+border:none;
+
+border-radius:50%;
+
+background:#1c1c1c;
+
+border:1px solid #2a2a2a;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+cursor:pointer;
+
+-webkit-tap-highlight-color:transparent;
+
+tap-highlight-color:transparent;
+
+outline:none;
+
+user-select:none;
+
+-webkit-user-select:none;
+
+opacity:0;
+
+visibility:hidden;
+
+transform:translateY(10px);
+
+transition:.25s ease;
+
+box-shadow:0 8px 24px rgba(0,0,0,.45);
+
+z-index:9999;
+
+}
+
+#scrollTopBtn svg{
+
+filter:drop-shadow(0 0 4px rgba(80,200,120,.65));
+
+}
+
+#scrollTopBtn.show{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translateY(0);
+
+}
+
+#scrollTopBtn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 28px rgba(0,0,0,.6);
+
+}
+
+#scrollTopBtn:focus{
+
+outline:none;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>Terms of Service</h1>
+<header class="navbar">
 
-<p>Last Updated: June 2026</p>
+<div class="nav-left">
 
-<h2>Acceptance</h2>
+<img
+src="assets/NotiSnap_Final_V1.png"
+alt="NotiSnap Logo"
+class="nav-logo">
 
-<p>
-By using NotiSnap, you agree to these terms.
+<span class="brand">
+NotiSnap
+</span>
+
+</div>
+
+<nav class="nav-right desktop-nav">
+
+<a href="privacy.html">
+Privacy
+</a>
+
+<a class="active-nav" href="terms.html">
+Terms
+</a>
+
+<a href="#support">
+Support
+</a>
+
+</nav>
+
+<div class="mobile-nav">
+
+<a
+class="mobile-support"
+href="#support">
+
+Support
+
+</a>
+
+<button
+class="menu-btn"
+type="button"
+aria-label="Menu">
+
+☰
+
+</button>
+
+</div>
+
+</header>
+
+<div id="drawerOverlay" class="drawer-overlay"></div>
+
+<aside id="mobileDrawer" class="mobile-drawer">
+
+<div class="drawer-header">
+
+<button
+id="closeDrawer"
+class="drawer-close"
+type="button"
+aria-label="Close Menu">
+
+✕
+
+</button>
+
+</div>
+
+<nav class="drawer-links">
+
+<a href="privacy.html">
+
+Privacy
+
+</a>
+
+<a class="active" href="terms.html">
+
+Terms
+
+</a>
+
+<a href="#">
+
+FAQ
+
+</a>
+
+<a href="#">
+
+About
+
+</a>
+
+</nav>
+
+</aside>
+
+<div class="container">
+
+<section class="hero-section">
+
+<h1>
+Terms of Service
+</h1>
+
+<p class="last-updated">
+Last Updated: June 2026
 </p>
 
-<h2>Purpose</h2>
-
-<p>
-NotiSnap is designed to archive and display notifications received on your Android device.
+<p class="hero-description">
+NotiSnap is designed to help users archive and recover notifications received on their Android device while keeping their data private.
 </p>
 
-<h2>No Guarantee</h2>
+</section>
+  
+<div class="policy-card">
+<h2>Information Stored</h2>
 
 <p>
-NotiSnap attempts to archive notifications received by Android. Notification delivery depends on Android system behavior and device settings, and cannot be guaranteed in all circumstances.
+NotiSnap stores notification content received by your device in order to provide notification history and recovery features.
 </p>
-
-<h2>User Responsibility</h2>
+</div>
+  
+<div class="policy-card">
+<h2>Local Storage</h2>
 
 <p>
-Users are responsible for managing notification permissions, battery optimization settings, and device configurations required for NotiSnap to function properly.
+All notification records remain stored locally on your device. NotiSnap does not upload, synchronize, or transmit notification data to external servers.
 </p>
-
-<h2>Data Loss</h2>
+</div>
+  
+<div class="policy-card">
+<h2>Internet Usage</h2>
 
 <p>
-Notification records may be automatically removed according to retention periods, archive limits, manual deletion, app uninstallation, or device-related events.
+NotiSnap does not require internet access for its core functionality. Notification history is archived and managed locally on your device.
 </p>
+</div>
 
-<h2>Liability</h2>
+<div class="policy-card">  
+<h2>Data Sharing</h2>
 
 <p>
-NotiSnap is provided "as is" without warranties of any kind. The developer shall not be liable for lost notifications, missed messages, lost OTPs, or any damages resulting from use of the application.
+NotiSnap does not collect personal information, sell user data, or share notification content with third parties.
 </p>
+</div>
 
-<h2>Contact</h2>
+<div class="policy-card">  
+<h2>Permissions</h2>
 
+<p>
+NotiSnap requires Notification Access permission in order to archive notifications received by your device.
+</p>
+</div>
+
+<div class="policy-card">
+<h2>Retention and Deletion</h2>
+
+<p>
+Notification records may be automatically removed according to user-configured retention periods and archive limits. Users may also manually delete notification cards from within the app.
+</p>
+</div>
+
+<div class="policy-card">  
+<h2>Backups</h2>
+
+<p>
+NotiSnap does not currently provide cloud backup, synchronization, or export functionality. If notification records are removed or the application is uninstalled, those records cannot be recovered through NotiSnap.
+</p>
+</div>
+
+<section id="support"> 
+<h2>
+
+Contact
+
+</h2>
+  
 <p>
 <a href="mailto:hello.notisnap@gmail.com">
     hello.notisnap@gmail.com
@@ -86,10 +753,112 @@ NotiSnap is provided "as is" without warranties of any kind. The developer shall
 </p>
 
 <p>
-<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms of Service</a>
 |
 <a href="index.html">Back to Home</a>
 </p>
+</section>
+
+</div>
+
+<button
+id="scrollTopBtn"
+type="button"
+aria-label="Scroll to top">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="24"
+height="24"
+viewBox="0 0 24 24"
+fill="none"
+stroke="#50C878"
+stroke-width="2.8"
+stroke-linecap="round"
+stroke-linejoin="round">
+
+<polyline points="18 15 12 9 6 15"></polyline>
+
+</svg>
+
+</button>
+
+<script>
+const menuBtn=document.querySelector(".menu-btn");
+
+const drawer=document.getElementById("mobileDrawer");
+
+const overlay=document.getElementById("drawerOverlay");
+
+const closeBtn=document.getElementById("closeDrawer");
+
+function closeDrawer(){
+
+drawer.classList.remove("show");
+
+overlay.classList.remove("show");
+
+}
+
+function openDrawer(){
+
+drawer.classList.add("show");
+
+overlay.classList.add("show");
+
+}
+
+menuBtn.addEventListener("click",()=>{
+
+if(drawer.classList.contains("show")){
+
+closeDrawer();
+
+}
+
+else{
+
+openDrawer();
+
+}
+
+});
+
+closeBtn.addEventListener("click",closeDrawer);
+
+overlay.addEventListener("click",closeDrawer);
+
+const btn=document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>100){
+
+btn.classList.add("show");
+
+}
+
+else{
+
+btn.classList.remove("show");
+
+}
+
+});
+
+btn.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+});
+  
+</script>
 
 </body>
 </html>
